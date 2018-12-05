@@ -52,6 +52,11 @@
   tags:
       - xpack
 
+- name: include keystore settings
+  import_tasks: elasticsearch-keystore.yml
+  tags:
+    - elastic:keystore
+
 - name: flush handlers
   meta: flush_handlers
 
