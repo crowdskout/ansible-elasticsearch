@@ -49,3 +49,11 @@
   when: not es_use_repository
   register: elasticsearch_install_from_package
   notify: restart elasticsearch
+
+- name: fix permissions
+  file:
+    path: "{{es_data_dirs}}"
+    state: directory
+    owner: "{{es_user}}"
+    group: "{{es_group}}"
+    recurse: yes
